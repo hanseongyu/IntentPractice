@@ -15,8 +15,11 @@ class OtherActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.returnToMainBtn.setOnClickListener {
-            val myIntent = Intent(this, MainActivity::class.java)
-            startActivity(myIntent)
+//            val myIntent = Intent(this, MainActivity::class.java)
+//            startActivity(myIntent)
+
+            //현재 화면을 꺼주세요.
+            finish()
         }
 
     }
