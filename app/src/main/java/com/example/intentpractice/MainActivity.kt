@@ -1,5 +1,6 @@
 package com.example.intentpractice
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -37,5 +38,21 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        //돌아온 이유가 닉네임을 받으로 온게 맞나?
+        if (requestCode == REQUEST_FOR_NICKNAME){
+            //확인 버튼을 눌러서 온게 맞는가?
+            if(resultCode == Activity.RESULT_OK){
+                //닉네임 데이타 꺼내서 반영하기
+                val newNickname = data?.getStringExtra("nickname")
+                binding.nicknameTxt.text =  newNickname
+            }
+        }
+
     }
 }
