@@ -2,6 +2,7 @@ package com.example.intentpractice
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.intentpractice.databinding.ActivityMainBinding
@@ -13,6 +14,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //전화연결 기능
+        binding.dialBtn.setOnClickListener{
+            //phoneNumEdt에 입력한 전화번호를 받아서>>> 해당 번호에 전화 연결
+            val inputPhoneNum = binding.phoneNumEdt.text.toString()
+
+            val myUri = Uri.parse("tel:${inputPhoneNum}")
+
+            val myIntent = Intent(Intent.ACTION_DIAL,myUri)
+
+            startActivity(myIntent)
+        }
 
         //닉네임 변경관련
         binding.editNicknameBtn.setOnClickListener {
