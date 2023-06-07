@@ -79,4 +79,22 @@
         android:layout_height="wrap_content"
         android:text="전화 걸기(CALL)"/>
 
+    <Button
+        android:id="@+id/smsBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="문자 보내기"/>
+
+    <Button
+        android:id="@+id/naverWebBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="네이버 웹으로 이동하기"/>
+
+    <Button
+        android:id="@+id/kakaoStoreBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="카카오 앱 다운 받기"/>
+
 </LinearLayout>

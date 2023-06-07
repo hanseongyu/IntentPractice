@@ -15,14 +15,41 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        //카카오 연동
+        binding.kakaoStoreBtn.setOnClickListener {
+            val myUri = Uri.parse("market://details?id=com.kakao.talk&pli=1")
+
+            val myIntent = Intent(Intent.ACTION_VIEW, myUri)
+            startActivity(myIntent)
+        }
+
+        //네이버 뷰 연동
+        binding.naverWebBtn.setOnClickListener {
+            val myUri = Uri.parse("http://naver.com")
+
+            val myIntent = Intent(Intent.ACTION_VIEW, myUri)
+            startActivity(myIntent)
+        }
+
+        //문자 보내기
+        binding.smsBtn.setOnClickListener {
+            val inputPhoneNum = binding.phoneNumEdt.text.toString()
+
+            val myUri = Uri.parse("smsto:${inputPhoneNum}")
+
+            val myIntent = Intent(Intent.ACTION_SENDTO,myUri)
+            myIntent.putExtra("sms_body","내용 자동 입력")
+            startActivity(myIntent)
+        }
+
         //call 버튼 기능
         binding.callBtn.setOnClickListener {
             val inputPhoneNum = binding.phoneNumEdt.text.toString()
 
-            val myUri = Uri.parse("tel:${inputPhoneNum}")
+            val myUri = Uri.parse("smsto:${inputPhoneNum}")
 
             val myIntent = Intent(Intent.ACTION_CALL,myUri)
-
             startActivity(myIntent)
 
         }
